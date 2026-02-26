@@ -28,12 +28,13 @@ def main():
     ]
 
     PyInstaller.__main__.run(args)
+    # ASCII only: Windows CI(cp1252)에서 한글 print 시 UnicodeEncodeError 방지
     if platform.system() == "Windows":
-        print(f"\n빌드 완료. 사용자는 dist/{name}.exe 더블클릭만 하면 됩니다.")
+        print("\nBuild OK: dist/" + name + ".exe")
     elif platform.system() == "Darwin":
-        print(f"\n빌드 완료. 사용자는 dist/{name}.app 더블클릭만 하면 됩니다.")
+        print("\nBuild OK: dist/" + name + ".app")
     else:
-        print(f"\n빌드 완료. 실행 파일: dist/{name}")
+        print("\nBuild OK: dist/" + name)
 
 if __name__ == "__main__":
     main()
