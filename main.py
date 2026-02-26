@@ -23,11 +23,11 @@ try:
 except ImportError as e:
     err = str(e).lower()
     if "_tkinter" in err or "no module named" in err:
-        print("이 Python에는 GUI용 tkinter가 없습니다.")
-        print("macOS Homebrew 사용 시: brew install python-tk@3.13")
-        print("또는 시스템 Python(/usr/bin/python3)으로 실행해 보세요.")
+        print("This Python has no GUI tkinter.")
+        print("macOS Homebrew: brew install python-tk@3.13")
+        print("Or use system Python: /usr/bin/python3")
     else:
-        print("customtkinter가 필요합니다. 터미널에서 실행하세요:")
+        print("customtkinter required. Run:")
         print("  python3 -m venv .venv && .venv/bin/pip install -r requirements.txt")
         print("  .venv/bin/python main.py")
     sys.exit(1)

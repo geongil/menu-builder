@@ -30,5 +30,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: 한달식단-Windows
-          path: dist/한달식단.exe
+          name: menu-builder-Windows
+          path: dist/menu-builder.exe
