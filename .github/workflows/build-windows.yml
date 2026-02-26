@@ -1,0 +1,34 @@
+# macOS에서 개발해도 Windows용 .exe를 만들 수 있도록 Windows runner에서 빌드
+# 수동 실행: Actions 탭 → "Windows 실행 파일 빌드" → Run workflow
+name: Windows 실행 파일 빌드
+
+on:
+  workflow_dispatch:   # 수동 실행만 (푸시할 때마다 돌리지 않음)
+  push:
+    tags:
+      - 'v*'           # 태그 푸시 시에도 빌드 (예: v1.0.0)
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-build.txt
+
+      - name: Build executable
+        run: python build.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 한달식단-Windows
+          path: dist/한달식단.exe

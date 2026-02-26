@@ -1,0 +1,21 @@
+# 가상환경
+.venv/
+venv/
+env/
+
+# 빌드 결과 (사용자에게 별도 전달)
+dist/
+build/
+*.spec
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
